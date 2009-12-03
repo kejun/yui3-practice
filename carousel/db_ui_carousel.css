@@ -1,0 +1,21 @@
+.yui-carousel-focused { outline:none; }
+.yui-carousel-items { position:absolute;top:0;left:0; }
+.yui-carousel .bd { position:relative;clear:both;overflow:hidden;zoom:1; }
+.yui-carousel .bd .yui-carousel-item { position:static;float:left;overflow:hidden; } 
+.yui-carousel .yui-carousel-switchdot { *float:right; }
+.yui-carousel .yui-carousel-switchdot li a { display:block;text-indent:2em; }   
+.yui-carousel .yui-carousel-switchdot li a:hover,.yui-carousel .switch-dot li a:hover  { background:transparent; } 
+.yui-carousel .yui-carousel-switchdot li a,   
+.yui-carousel .yui-carousel-switchdot li { width:8px;height:8px;overflow:hidden; }
+.yui-carousel .yui-carousel-switchdot li { float:left;margin-right:2px;background:url(http://t.douban.com/pics/switch_dot_small.jpg) no-repeat;}
+.yui-carousel .yui-carousel-switchdot li.yui-carousel-current { background-position:-11px 0; }
+.yui-carousel-switch .yui-carousel-btn-next, .yui-carousel-switch { float:right; }
+.yui-carousel-switch .yui-carousel-btn-prev { float:right;margin-right:5px; }
+.yui-carousel-switch .yui-carousel-btn-next,
+.yui-carousel-switch .yui-carousel-btn-prev { width:18px;height:18px;overflow:hidden;line-height:20em; }
+.yui-carousel-switch .yui-carousel-btn-next a,
+.yui-carousel-switch .yui-carousel-btn-prev a { display:block;width:18px;height:18px;background:url(http://t.douban.com/pics/left_right.gif) no-repeat -34px -7px; }
+.yui-carousel-switch .yui-carousel-btn-prev a { background-position:-6px -7px; }
+.yui-carousel-switch .yui-carousel-btn-prev  a.yui-carousel-dis { background-position:-6px -40px;cursor:default; }
+.yui-carousel-switch .yui-carousel-btn-next  a.yui-carousel-dis { background-position:-34px -40px;cursor:default; }
+.yui-carousel-switchdot { float:left;margin:5px 5px 0 0; }
