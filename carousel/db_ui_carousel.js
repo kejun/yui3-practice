@@ -26,6 +26,10 @@ YUI.add('db-ui-carousel', function(Y){
 		effect:  { value: 'easeOutStrong' },
 
 		duration:  { value: 0.5 },
+		
+		intervalTime: { value: 0 },
+		
+		isLoop: { value: false },
 
 		strings: {
 			value: {
@@ -52,6 +56,9 @@ destructor: function(){
  this.switchButtons[0] = null;
  this.switchButtons[1] = null;
  this.itemsContainer = null;
+ if(this._timer){
+	this._timer.cancel();
+ }
 },
 
 renderUI: function(){
@@ -69,9 +76,22 @@ renderUI: function(){
 
 bindUI: function(){
   this.after('currentIndexChange', this._afterCurrentIndexChange);
-	this.switchButtons[0].on('click', Y.bind(this._handleNextClick, this));
-	this.switchButtons[1].on('click', Y.bind(this._handlePrevClick, this));
+  this.switchButtons[0].on('click', Y.bind(this._handleNextClick, this));
+  this.switchButtons[1].on('click', Y.bind(this._handlePrevClick, this));
   this.get('switchNode').delegate('click', Y.bind(this._handleDotClick, this), 'li a');
+
+  var intervalTime = this.get('intervalTime');
+  if(intervalTime){
+	this.get('contentBox').on('mouseover', Y.bind(this._handleMouseOver, this));
+	this.get('contentBox').on('mouseout', Y.bind(this._handleMouseOut, this));
+	this.set('isLoop', true);
+	this._timer = Y.later(intervalTime * 1000, this, function(){
+		if(this._pause){
+			return;
+		}
+		this._handleNextClick();
+	}, null, true);
+  }
 },
 
 syncUI: function(){
@@ -102,13 +122,12 @@ _uiCreateSwitch: function(){
 _show: function(n){
 	var dist = -1 * n * this.stepUnit + 'px';
 	var anim = new Y.Anim({
-    node: this.itemsContainer,
-    to: {
+      node: this.itemsContainer,
+      to: {
 		  left: dist 
-			},
-	//easing: Y.Easing.easeOutStrong,
-	easing: Y.Easing[this.get('effect')],
-   duration: this.get('duration') 
+	  },
+	  easing: Y.Easing[this.get('effect')],
+      duration: this.get('duration') 
 	});
 	anim.run();
 },
@@ -120,10 +139,15 @@ _afterCurrentIndexChange: function(e){
 },
 
 _updateSwitchButton: function(){
+  Y.each(this.switchButtons, function(n){ 
+	 n.removeClass(BTN_DISABLE_CLASS); 
+  });
+
+  if(this.get('isLoop')){
+	return;
+  }
+
   var currentIndex = this.get('currentIndex');
-	Y.each(this.switchButtons, function(n){ 
-			 n.removeClass(BTN_DISABLE_CLASS); 
-	});
 	if(currentIndex === 0){
 		this.switchButtons[1].addClass(BTN_DISABLE_CLASS);
 	}else if(currentIndex === this.get('contentItems').size() - 1){
@@ -141,15 +165,36 @@ _updateSwitchDot: function(){
 	});
 },
 
+_handleMouseOver: function(){
+	this._pause = true;
+},
+
+_handleMouseOut: function(){
+	this._pause = false;
+},
+
 _handleNextClick: function(e){
+	Y.log(e);
 	var currentIndex = this.get('currentIndex'), n = this.get('contentItems').size();
-	e.preventDefault();
+	if(e){
+		e.preventDefault();
+    }
+	if(this.get('isLoop') && this.get('currentIndex') === (n - 1)){
+		this.set('currentIndex', 0);
+		return;
+	}
 	this.set('currentIndex', (currentIndex + 1 < n)? currentIndex + 1 : n - 1);
 },
 
 _handlePrevClick: function(e){
 	var currentIndex = this.get('currentIndex');
-	e.preventDefault();
+	if(e){
+		e.preventDefault();
+    }
+	if(this.get('isLoop') && this.get('currentIndex') === 0){
+		this.set('currentIndex', this.get('contentItems').size() - 1);
+		return;
+	}
 	this.set('currentIndex', (currentIndex - 1 < 0)? 0 : currentIndex - 1);
 },
 

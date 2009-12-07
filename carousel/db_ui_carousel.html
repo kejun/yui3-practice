@@ -228,6 +228,7 @@
 <script>
 	Douban.use('db-ui-carousel', function(D){
 		var carou_book = new D.ui.Carousel({contentBox: '#book'});
+		carou_book.set('intervalTime', 5);
 		carou_book.render();
 		
 		var carou_movie = new D.ui.Carousel({contentBox: '#movie', strings: {next: '下一组', back: '上一组'}});
