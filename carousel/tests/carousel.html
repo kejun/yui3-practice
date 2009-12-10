@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>carousel</title>
+	
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.0r4/build/logger/assets/logger.css">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.0r4/build/yuitest/assets/testlogger.css">
+	
+	<style>
+	body { font:14px/1.6 arial,sans-serif; }
+	h1 { font-size:2em; }
+	h2, ul { margin:0;padding:0; }
+	li { list-style:none; }
+	img { border:0; }
+	.list li { float:left; }
+	.mod { width:600px;margin-bottom:20px; }
+	.mod .hd { margin-bottom:10px;overflow:hidden;*zoom:1; }
+	.mod .hd h2 { float:left; }
+	#book .bd { overflow:hidden;height:160px; }
+	#book .list li { width:120px;height:160px;text-align:center; }
+	#movie .list li { width:300px;height:120px;overflow:hidden; }
+	#movie .bd { height:120px;overflow:hidden; }
+	#movie .info { font-size:12px;color:#666; }
+	#movie .title { font-size:14px;font-weight:800; }
+	.item .pic { float:left;margin-right:10px; }
+	.item .pic img { border:1px solid #ddd;padding:2px; }
+	.item { padding-right:10px; }
+	</style>
+	<script src="http://yui.yahooapis.com/3.0.0/build/yui/yui-min.js"></script> 
+	<script>
+	var Douban = new YUI({
+		modules: {
+			'db-ui-carousel-skin': {
+				fullpath: '../db_ui_carousel.css',
+				type: 'css'
+			},
+			'db-ui-carousel': {
+				fullpath: '../db_ui_carousel.js',
+				requires: ['db-ui-carousel-skin', 'widget', 'anim-base', 'anim-easing']
+			}
+		}
+	});
+	</script>
+</head>
+<body class="yui-skin-sam">
+	
+	
+	<div id="book" class="mod">
+	<div class="hd">
+		<h2>Demo 1</h2>
+	</div>
+	<div class="bd">
+		<ul class="list">
+			<li>
+				<a href="http://douban.com/subject/4074636/"><img src="http://t.douban.com/mpic/s4066862.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4153464/"><img src="http://t.douban.com/mpic/s4067627.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4124427/"><img src="http://t.douban.com/mpic/s4046050.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4126861/"><img src="http://t.douban.com/mpic/s4047895.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4106371/"><img src="http://t.douban.com/mpic/s4056457.jpg"></a>
+			</li>
+		</ul>
+		<ul class="list">
+			<li>
+				<a href="http://douban.com/subject/4143051/"><img src="http://t.douban.com/mpic/s4077033.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4105035/"><img src="http://t.douban.com/mpic/s4036686.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4111515/"><img src="http://t.douban.com/mpic/s4034241.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4126694/"><img src="http://t.douban.com/mpic/s4048177.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4060755/"><img src="http://t.douban.com/mpic/s3997251.jpg"></a>
+			</li>
+		</ul>
+		<ul class="list">
+			<li>
+				<a href="http://douban.com/subject/4117261/"><img src="http://t.douban.com/mpic/s4039177.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4074687/"><img src="http://t.douban.com/mpic/s4038357.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4134766/"><img src="http://t.douban.com/mpic/s4064768.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4105446/"><img src="http://t.douban.com/mpic/s4071180.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4124415/"><img src="http://t.douban.com/mpic/s4046044.jpg"></a>
+			</li>
+		</ul>
+		<ul class="list">
+			<li>
+				<a href="http://douban.com/subject/4126839/"><img src="http://t.douban.com/mpic/s4047868.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4074689/"><img src="http://t.douban.com/mpic/s4038356.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4100407/"><img src="http://t.douban.com/mpic/s4043531.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4075203/"><img src="http://t.douban.com/mpic/s4055126.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/3876270/"><img src="http://t.douban.com/mpic/s4025892.jpg"></a>
+			</li>
+		</ul>
+		<ul class="list">
+			<li>
+				<a href="http://douban.com/subject/4146818/"><img src="http://t.douban.com/mpic/s4063474.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4076216/"><img src="http://t.douban.com/mpic/s4014754.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4162009/"><img src="http://t.douban.com/mpic/s4072855.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4088727/"><img src="http://t.douban.com/mpic/s4025828.jpg"></a>
+			</li>
+			<li>
+				<a href="http://douban.com/subject/4134640/"><img src="http://t.douban.com/mpic/s4064179.jpg"></a>
+			</li>
+		</ul>
+	</div>
+	</div>
+
+
+
+
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.0r4/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.0r4/build/event-simulate/event-simulate-min.js"></script>
+<script type="text/javascript" src="http://yui.yahooapis.com/2.8.0r4/build/logger/logger-min.js"></script>
+<script src="http://localhost/~kejun/yui/yuitest-min.js"></script>
+	<script>
+		Douban.use('db-ui-carousel', function(D){
+		
+		var util = YAHOO.util, 
+			tool = YAHOO.tool,
+			action = util.UserAction,
+			assert = util.Assert,
+			carousel = new D.ui.Carousel({contentBox:'#book'});
+			carousel.render();
+
+		var oTestCase = new tool.TestCase({
+			name: 'test db-ui-carousel',
+			setUp: function(){},
+			tearDown: function(){},
+			testInitialize: function(){
+				var switchNode = carousel.get('switchNode'),
+				switchDotNum = switchNode.all('.yui-carousel-switchdot li').size(),
+				switchButtons = carousel.switchButtons;
+				assert.isNotNull(switchNode);
+				assert.isNotUndefined(switchButtons[0]);
+				assert.isNotUndefined(switchButtons[1]);
+				assert.areEqual(5, switchDotNum, 'total 5 switch dot nodes.');
+			},
+			testNextButtonClick: function(){
+				var buttons = carousel.switchButtons,
+				index = carousel.get('currentIndex');
+				action.click(buttons[0]._node);
+				assert.areEqual(index + 1, carousel.get('currentIndex'), 'currentIndex should be add one.');
+			},
+			testPrevButtonClick: function(){
+				var buttons = carousel.switchButtons,
+				index = carousel.get('currentIndex');
+				action.click(buttons[1]._node);
+				assert.areEqual(index - 1, carousel.get('currentIndex'), 'currentIndex should be add one.');
+			},
+			testSwitchDotClick: function(){
+				var switchDots = carousel.get('switchNode').all('.yui-carousel-switchdot li a');
+				D.each(switchDots, function(n, i){
+					action.click(n._node);
+					assert.areEqual(i, carousel.get('currentIndex'), 'currentIndex should be match the index of click');
+				});
+			},
+			testMoveOnCurrentIndexChange: function(){
+				var container = carousel.get('contentBox').one('.bd div');
+				carousel.set('currentIndex', 2);
+				this.wait(function(){
+					assert.areEqual('-1200px', container.getStyle('left'), 'left should be the value.')
+				}, 500);
+			},
+			testLoop: function(){
+				var buttons = carousel.switchButtons,
+				container = carousel.get('contentBox').one('.bd div');
+				carousel.set('isLoop', true);
+				carousel.set('currentIndex', 0);
+				action.click(buttons[1]._node);				
+				this.wait(function(){
+					assert.areEqual('-2400px', container.getStyle('left'), 'left should be the value.')
+				}, 500);
+			},
+			testAnimDuration: function(){
+				var container = carousel.get('contentBox').one('.bd div');
+				carousel.set('duration', 2);
+				carousel.set('currentIndex', 0);
+				this.wait(function(){
+					assert.areEqual('0px', container.getStyle('left'), 'left should be the value.')
+				}, 2012);
+			}
+		});
+		
+		new tool.TestLogger();
+		tool.TestRunner.add(oTestCase);
+		tool.TestRunner.run();
+		
+		});
+	</script>
+
+
+
+</body>
+</html>
