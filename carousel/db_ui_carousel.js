@@ -174,7 +174,6 @@ _handleMouseOut: function(){
 },
 
 _handleNextClick: function(e){
-	Y.log(e);
 	var currentIndex = this.get('currentIndex'), n = this.get('contentItems').size();
 	if(e){
 		e.preventDefault();
